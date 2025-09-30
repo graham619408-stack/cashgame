@@ -3,6 +3,22 @@
 <html>
   <head>
       <title>GAMBLING 🤑🤑🤑</title>
+
+      <script>
+        var cash = 1;
+
+        var balance = document.getElementById("balance");
+        balance.textContent = cash;
+
+        const button = document.getElementById("button");
+
+        function click() {
+          cash += 1;
+          balance.textContent = cash;
+
+          alert("Check!")
+        }
+    </script>
     
       <style>
         .maintext {
@@ -28,25 +44,8 @@
 
       <br></br>
       
-      <button onclick="click()" style="width: 150px; height: 100px; font-size:20px;">get money</button>
+      <button id="button" onclick="click()" style="background-color: lightgrey; width: 150px; height: 100px; font-size:20px;">get money</button>
 
     </center>
-
-    <script>
-      var cash = 1;
-
-      const balance = document.getElementById("balance");
-      balance.textContent = cash;
-
-      const button = document.getElementById("button");
-
-      function click() {
-        cash += 1;
-        balance.textContent = cash;
-
-        alert("Check!")
-      }
-    </script>
-    
   </body>
 </html>
