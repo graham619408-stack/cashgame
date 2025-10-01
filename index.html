@@ -2,7 +2,7 @@
 
 <html>
   <head>
-      <title>GAMBLING 🤑🤑🤑</title>
+      <title>cash game</title>
     
       <style>
         .maintext {
@@ -19,7 +19,7 @@
 
   <body>
     <center>
-      <p class="maintext"; style="font-family="sans-serif">Testing</p>
+      <p class="maintext"; style="font-family="sans-serif">cash game</p>
       
       <br>
       
@@ -32,25 +32,33 @@
 
       <br><br><br>
 
-      <label class="maintext">Upgrades</label>
+      <label class="maintext">Click Upgrades</label>
       <br> <br>
       <label id="upg1cost" class="smalltext">$10</label>
       <br>
       <button id ="upg1" style="background-color: lightgrey; width: 150px; height: 40px; font-size:15px;">+1 Cash/Click</button>
+      <br> <br>
+      <label id="upg2cost" class="smalltext">$500</label>
+      <br>
+      <button id ="upg2" style="background-color: lightgrey; width: 150px; height: 40px; font-size:15px;">2x Cash/Click</button>
 
     </center>
 
      <script>
         let cash = 1;
         let increment = 1;
+        let multiplier = 1;
 
         let upg1cost = 10
+        let upg2cost = 500
        
         const balance = document.getElementById("balance");
+       
         const upg1costtext = document.getElementById("upg1cost");
+        const upg2costtext = document.getElementById("upg2cost");
        
         btn.onclick = function() {
-          cash += increment;
+          cash += increment * multiplier;
           balance.textContent = cash;
         }
 
@@ -62,6 +70,17 @@
             upg1cost += 10
             
             upg1costtext.textContent = "$"+upg1cost; 
+            balance.textContent = cash;
+          }
+
+          upg2.onclick = function() {
+          if (cash >= upg2cost) {
+            cash -= upg2cost
+            
+            multiplier += 1;
+            upg2cost *= 1.5
+            
+            upg1costtext.textContent = "$"+upg2cost; 
             balance.textContent = cash;
           }
         }
