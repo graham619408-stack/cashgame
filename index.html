@@ -21,24 +21,46 @@
     <center>
       <p class="maintext"; style="font-family="sans-serif">Testing</p>
       
-      <br></br>
+      <br>
       
       <label class="smalltext">$</label>
-      <p class="smalltext" id="balance">1</p>
+      <label class="smalltext" id="balance">1</label>
 
-      <br></br>
+      <br>
       
       <button id ="btn" style="background-color: lightgrey; width: 150px; height: 100px; font-size:20px;">get money</button>
+
+      <br>
+
+      <label class="maintext">Upgrades</label>
+      <br>
+      <label id="upg1cost">$10</label>
+      <button id ="upg1" style="background-color: lightgrey; width: 150px; height: 40px; font-size:15px;">+1 Cash/Click</button>
 
     </center>
 
      <script>
         let cash = 1;
+        let increment = 1;
+
+        let upg1cost = 10
+       
         const balance = document.getElementById("balance");
+        const upg1costtext = document.getElementById("upg1cost");
        
         btn.onclick = function() {
-          cash += 1;
+          cash += increment;
           balance.textContent = cash;
+        }
+
+        upg1.onclick = function() {
+          if (cash >= upg1cost) {
+            cash -= upg1cost
+            
+            increment += 1;
+            upg1cost += 10
+            upg1costtext.textContent = upg1cost; 
+          }
         }
     </script>
   </body>
