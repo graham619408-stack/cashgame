@@ -35,36 +35,34 @@
       
       <br>
 
-      <button id="moneyButton">Earn Cash</button>
-      <button id="upgradeButton">Upgrade</button>
+      <button id="moneyButton" class="thinbutton">Earn Cash</button>
+      <button id="upgradeButton" class="thinbutton">Upgrade</button>
 
-      <div id="moneyDiv" style="width: 100%; height: 500px; background-color: white; display: block"></div>
-      <div id="upgradeDiv" style="width: 100%; height: 500px; background-color: white; display: none"></div>
+      <div id="moneyDiv" style="width: 100%; height: 500px; background-color: white; display: block">
+        <label class="smalltext">$</label>
+        <label class="smalltext" id="balance">1</label>
+
+        <br><br>
       
-      <label class="smalltext">$</label>
-      <label class="smalltext" id="balance">1</label>
+        <button id ="btn" style="background-color: lightgrey; width: 150px; height: 100px; font-size:20px;">get money</button>
 
-      <br><br>
+        <br>
+
+        <label class="smallertext" id="incr">1 Cash/Click</label>
+        </div>
+      <div id="upgradeDiv" style="width: 100%; height: 500px; background-color: white; display: none">
+        <label class="maintext">Click Upgrades</label>
+        <br> <br>
       
-      <button id ="btn" style="background-color: lightgrey; width: 150px; height: 100px; font-size:20px;">get money</button>
-
-      <br>
-
-      <label class="smallertext" id="incr">1 Cash/Click</label>
-
-      <br><br><br>
-
-      <label class="maintext">Click Upgrades</label>
-      <br> <br>
+        <label id="upg1cost" class="smalltext">$10</label>
+        <br>
+        <button id ="upg1" class="thinbutton">+1 Cash/Click</button>
+        <br> <br>
       
-      <label id="upg1cost" class="smalltext">$10</label>
-      <br>
-      <button id ="upg1" class="thinbutton">+1 Cash/Click</button>
-      <br> <br>
-      
-      <label id="upg2cost" class="smalltext">$500</label>
-      <br>
-      <button id ="upg2" class="thinbutton">2x Cash/Click</button>
+        <label id="upg2cost" class="smalltext">$500</label>
+        <br>
+        <button id ="upg2" class="thinbutton">+1x Cash/Click</button>
+        </div>
 
     </center>
 
