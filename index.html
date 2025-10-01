@@ -14,6 +14,11 @@
           font-family: "Arial";
           font-size: 35px;
         }
+
+        .smallertext {  
+          font-family: "Arial";
+          font-size: 15px;
+        }
       </style>
   </head>
 
@@ -29,6 +34,10 @@
       <br><br>
       
       <button id ="btn" style="background-color: lightgrey; width: 150px; height: 100px; font-size:20px;">get money</button>
+
+      <br>
+
+      <label class="smallertext" id="incr">+1 Cash/Click</label>
 
       <br><br><br>
 
@@ -55,6 +64,7 @@
         let upg2cost = 500
        
         const balance = document.getElementById("balance");
+        const incrementText = document.getElementById("incr");
        
         const upg1costtext = document.getElementById("upg1cost");
         const upg2costtext = document.getElementById("upg2cost");
@@ -62,6 +72,7 @@
         btn.onclick = function() {
           cash += increment * multiplier;
           balance.textContent = cash;
+          incrementText.textContent = (increment * multiplier)+" Cash/Click";
         }
 
         upg1.onclick = function() {
@@ -81,7 +92,10 @@
             cash -= upg2cost
             
             multiplier += 1
-            upg2cost = Math.round(upg2cost*1.5)
+            upg2cost = upg2cost*1.5
+
+            let roundedCost = Math.round(upg2cost)
+            upg2cost = roundedCost
             
             upg2costtext.textContent = "$"+upg2cost; 
             balance.textContent = cash;
