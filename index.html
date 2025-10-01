@@ -26,6 +26,13 @@
           height: 40px; 
           font-size:15px;
         }
+
+        .menubutton {
+          background-color: lightgrey; 
+          width: 45%; 
+          height: 30px; 
+          font-size:12px;
+        }
       </style>
   </head>
 
@@ -35,10 +42,12 @@
       
       <br>
 
-      <button id="moneyButton" class="thinbutton">Earn Cash</button>
-      <button id="upgradeButton" class="thinbutton">Upgrade</button>
+      <button id="moneyButton" class="menubutton">Earn Cash</button>
+      <button id="upgradeButton" class="menubutton">Upgrade</button>
 
-      <div id="moneyDiv" style="width: 100%; height: 500px; background-color: white; display: block">
+      <br><br>
+
+      <div id="moneyDiv" style="width: 100%; height: 500px; background-color: white; border-style: double; border-width: 3px; display: block">
         <label class="smalltext">$</label>
         <label class="smalltext" id="balance">1</label>
 
@@ -50,7 +59,7 @@
 
         <label class="smallertext" id="incr">1 Cash/Click</label>
         </div>
-      <div id="upgradeDiv" style="width: 100%; height: 500px; background-color: white; display: none">
+      <div id="upgradeDiv" style="width: 100%; height: 500px; background-color: white; border-style: double; border-width: 3px; display: none">
         <label class="maintext">Click Upgrades</label>
         <br> <br>
       
