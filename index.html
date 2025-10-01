@@ -28,14 +28,14 @@
 
       <br></br>
       
-      <button onclick="click()" style="background-color: lightgrey; width: 150px; height: 100px; font-size:20px;">get money</button>
+      <button id ="btn" style="background-color: lightgrey; width: 150px; height: 100px; font-size:20px;">get money</button>
 
     </center>
 
      <script>
         let cash = 1;
 
-        function click() {
+        btn.onClick = function() {
           cash += 1;
           let balance = document.getElementById("balance").textContent = toString(cash);
         }
