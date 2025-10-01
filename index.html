@@ -61,7 +61,7 @@
         </div>
       <div id="upgradeDiv" style="width: 100vw; height: 100%; background-color: white; display: none">
         <label class="smallertext">$</label>
-        <label class="smallertext" id="balance">1</label>
+        <label class="smallertext" id="balance2">1</label>
 
         <br>
         
@@ -130,6 +130,8 @@
        upgradeButton.onclick = function() {
          document.getElementById("moneyDiv").style.display = "none";
          document.getElementById("upgradeDiv").style.display = "block";
+
+         document.getElementById("balance2").textContent = cash;
        }
 
         moneyButton.onclick = function() {
