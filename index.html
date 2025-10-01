@@ -19,6 +19,13 @@
           font-family: "Arial";
           font-size: 15px;
         }
+
+        .thinbutton {
+          background-color: lightgrey; 
+          width: 150px; 
+          height: 40px; 
+          font-size:15px;
+        }
       </style>
   </head>
 
@@ -27,6 +34,12 @@
       <p class="maintext"; style="font-family="sans-serif">cash game</p>
       
       <br>
+
+      <button id="moneyButton">Earn Cash</button>
+      <button id="upgradeButton">Upgrade</button>
+
+      <div id="moneyDiv" style="width: 100%; height: 500px; background-color: white; display: block"></div>
+      <div id="upgradeDiv" style="width: 100%; height: 500px; background-color: white; display: none"></div>
       
       <label class="smalltext">$</label>
       <label class="smalltext" id="balance">1</label>
@@ -37,7 +50,7 @@
 
       <br>
 
-      <label class="smallertext" id="incr">+1 Cash/Click</label>
+      <label class="smallertext" id="incr">1 Cash/Click</label>
 
       <br><br><br>
 
@@ -46,12 +59,12 @@
       
       <label id="upg1cost" class="smalltext">$10</label>
       <br>
-      <button id ="upg1" style="background-color: lightgrey; width: 150px; height: 40px; font-size:15px;">+1 Cash/Click</button>
+      <button id ="upg1" class="thinbutton">+1 Cash/Click</button>
       <br> <br>
       
       <label id="upg2cost" class="smalltext">$500</label>
       <br>
-      <button id ="upg2" style="background-color: lightgrey; width: 150px; height: 40px; font-size:15px;">2x Cash/Click</button>
+      <button id ="upg2" class="thinbutton">2x Cash/Click</button>
 
     </center>
 
@@ -101,6 +114,16 @@
             balance.textContent = cash;
           }
         }
+
+       upgradeButton.onclick = function() {
+         document.getElementById("moneyDiv").style.display = "none";
+         document.getElementById("upgradeDiv").style.display = "block";
+       }
+
+        moneyButton.onclick = function() {
+         document.getElementById("moneyDiv").style.display = "block";
+         document.getElementById("upgradeDiv").style.display = "none";
+       }
     </script>
   </body>
 </html>
