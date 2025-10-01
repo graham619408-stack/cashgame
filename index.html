@@ -34,7 +34,8 @@
 
       <label class="maintext">Upgrades</label>
       <br>
-      <label id="upg1cost">$10</label>
+      <br>
+      <label id="upg1cost" class="smalltext">$10</label>
       <button id ="upg1" style="background-color: lightgrey; width: 150px; height: 40px; font-size:15px;">+1 Cash/Click</button>
 
     </center>
@@ -59,7 +60,9 @@
             
             increment += 1;
             upg1cost += 10
-            upg1costtext.textContent = upg1cost; 
+            
+            upg1costtext.textContent = "$"+upg1cost; 
+            balance.textContent = cash;
           }
         }
     </script>
