@@ -49,6 +49,7 @@
      <script>
         let cash = 1;
         let increment = 1;
+        let multiplier = 1;
 
         let upg1cost = 10
         let upg2cost = 500
@@ -59,7 +60,7 @@
         const upg2costtext = document.getElementById("upg2cost");
        
         btn.onclick = function() {
-          cash += increment;
+          cash += increment * multiplier;
           balance.textContent = cash;
         }
 
@@ -79,7 +80,7 @@
           if (cash >= upg2cost) {
             cash -= upg2cost
             
-            increment *= 2
+            multiplier += 1
             upg2cost *= 1.5
             
             upg2costtext.textContent = "$"+upg2cost; 
