@@ -81,7 +81,7 @@
             cash -= upg2cost
             
             multiplier += 1
-            upg2cost *= 1.5
+            upg2cost = Math.round(upg2cost*1.5)
             
             upg2costtext.textContent = "$"+upg2cost; 
             balance.textContent = cash;
