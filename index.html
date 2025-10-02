@@ -172,16 +172,6 @@
           }
         }
 
-         if (win == true) {
-           cash += document.getElementById("input").value * 2
-           
-           balance.textContent = cash;
-           document.getElementById("balance3").textContent = cash 
-         } else {
-           cash -= document.getElementById("input").value;
-         }
-       }
-
         upg1.onclick = function() {
           if (cash >= upg1cost) {
             cash -= upg1cost
