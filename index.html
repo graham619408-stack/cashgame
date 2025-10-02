@@ -78,6 +78,11 @@
         <label id="upg2cost" class="smalltext">$5000</label>
         <br>
         <button id ="upg2" class="thinbutton">+1x Cash/Click</button>
+        <br> <br>
+      
+        <label id="upg3cost" class="smalltext">$2500</label>
+        <br>
+        <button id ="upg3" class="thinbutton">5% Casino Refund</button>
       </div>
 
       <div id="gambleDiv" style="width: 100vw; height: 100%; background-color: white; display: none">
@@ -88,10 +93,6 @@
 
         <label class="smallertext">Bet Amount: </label>
         <input id="input" type="number"></input>
-
-        <br>
-
-        <label class = maintext>slots</label>
         
         <br><br>
 
@@ -106,14 +107,6 @@
         <br><br>
 
         <button id ="btn2" style="background-color: lightgrey; width: 150px; height: 50px; font-size:20px;">Spin</button>
-
-        <br><br><br>
-
-        <label class = maintext>coin flip</label>
-
-        <label id="coinflip" style="font-family: Arial; font-size:50; width: 80px; height: 80px; border-style:solid; border-width:3px">HEADS</label>
-        <br>
-        <button id ="btn3" style="background-color: lightgrey; width: 150px; height: 50px; font-size:20px;">Flip</button>
         
       </div>
 
@@ -124,8 +117,11 @@
         let increment = 1;
         let multiplier = 1;
 
+        let refund = 1;
+
         let upg1cost = 50;
         let upg2cost = 5000;
+        let upg3cost = 2500;
        
         const balance = document.getElementById("balance");
         const incrementText = document.getElementById("incr");
@@ -134,6 +130,7 @@
        
         const upg1costtext = document.getElementById("upg1cost");
         const upg2costtext = document.getElementById("upg2cost");
+        const upg3costtext = document.getElementById("upg3cost");
        
         btn.onclick = function() {
           cash += increment * multiplier;
@@ -166,28 +163,13 @@
               cash += document.getElementById("input").value * 3
               res.textContent = "Double Match! (3x)"
            } else {
-             cash -= document.getElementById("input").value;
-             res.textContent = "awh man"
+             cash -= document.getElementById("input").value * refund;
+             res.textContent = "awh man (" + (100 - (refund * 100)) + "% Back)"
           }
 
           balance.textContent = cash;
           document.getElementById("balance3").textContent = cash 
           }
-        }
-
-       btn3.onclick = function() {
-        let win = true;
-         
-        for (let i = 1, i > Math.floor(Math.random() * 10), i++) {
-          setTimeout(function() {
-            if (win == true) {
-             win = false;
-             document.getElementById("coinflip").textContent = "TAILS"
-           } else {
-             win = true;
-             document.getElementById("coinflip").textContent = "HEADS"
-           }
-          }, 100)
         }
 
          if (win == true) {
@@ -213,17 +195,30 @@
           }
         }
 
-          upg2.onclick = function() {
+        upg2.onclick = function() {
           if (cash >= upg2cost) {
             cash -= upg2cost
             
             multiplier += 1
-            upg2cost = upg2cost*1.5
+            upg2cost = upg2cost * 1.5
 
             let roundedCost = Math.round(upg2cost)
             upg2cost = roundedCost
             
             upg2costtext.textContent = "$"+upg2cost; 
+            document.getElementById("balance2").textContent = cash;
+            balance.textContent = cash;
+          }
+        }
+
+       upg3.onclick = function() {
+          if (cash >= upg3cost) {
+            cash -= upg3cost
+            
+            refund -= 0.05
+            upg3cost = upg3cost * 2
+            
+            upg3costtext.textContent = "$"+upg3cost; 
             document.getElementById("balance2").textContent = cash;
             balance.textContent = cash;
           }
