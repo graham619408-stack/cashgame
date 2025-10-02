@@ -141,12 +141,14 @@
            if (slot1 == 7 && slot2 == 7 && slot3 == 7) {
                cash += document.getElementById("input").value * 25
                res.textContent = "Triple Sevens!!! (25x)"
-           } else if (slot1 == slot2 && slot2 == slo3) {
-              cash += document.getElementById("input").value * 5
-              res.textContent = "Triple Match!! (5x)"
            } else if (slot1 == 7 && slot2 == 7 || slot2 == 7 && slot3 == 7 || slot1 == 7 && slot3 == 7) {
               cash += document.getElementById("input").value * 3
               res.textContent = "Double Sevens! (7x)" 
+             
+           } else if (slot1 == slot2 && slot2 == slot3) {
+              cash += document.getElementById("input").value * 5
+              res.textContent = "Triple Match!! (5x)"  
+             
            } else if (slot1 == slot2 || slot2 == slot3 || slot1 == slot3) {
               cash += document.getElementById("input").value * 3
               res.textContent = "Double Match! (3x)"
