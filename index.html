@@ -91,9 +91,9 @@
         
         <br><br>
 
-        <label id="slot1" style="font-family: Arial; width: 60px; height: 150px; border-style: solid; border-width: 3px">0</label>
-        <label id="slot2" style="font-family: Arial; width: 60px; height: 150px; border-style: solid; border-width: 3px">0</label>
-        <label id="slot3" style="font-family: Arial; width: 60px; height: 150px; border-style: solid; border-width: 3px">0</label>
+        <label id="slot1" style="font-family: Arial; width: 60px; height: 150px; font-size: 40px; border-style: solid; border-width: 3px">0</label>
+        <label id="slot2" style="font-family: Arial; width: 60px; height: 150px; font-size: 40px; border-style: solid; border-width: 3px">0</label>
+        <label id="slot3" style="font-family: Arial; width: 60px; height: 150px; font-size: 40px; border-style: solid; border-width: 3px">0</label>
 
         <br>
 
@@ -134,7 +134,7 @@
         }
 
         btn2.onclick = function() {
-          cash -= document.getElementById("input");
+          cash -= document.getElementById("input").value;
           
           slot1 = Math.floor(Math.random() * 9 + 1);
           slot2 = Math.floor(Math.random() * 9 + 1);
@@ -145,10 +145,12 @@
           document.getElementById("slot3").textContent = slot3;
 
           won = false;
+
+          res.textContent = "awh man"
           
           if (slot1 == 7 && slot2 == 7 && slot3 == 7) {
             if (won == false) {
-              cash += document.getElementById("input") * 25
+              cash += document.getElementById("input").value * 25
               res.textContent = "Triple Sevens!!! (25x)"
 
               won = true; 
@@ -157,7 +159,7 @@
 
           if (slot1 == slot2 && slot2 == slo3) {
             if (won == false) {
-             cash += document.getElementById("input") * 5
+             cash += document.getElementById("input").value * 5
              res.textContent = "Triple Match!! (5x)"
 
              won = true; 
@@ -166,7 +168,7 @@
 
           if (slot1 == 7 && slot2 == 7 || slot2 == 7 && slot3 == 7 || slot1 == 7 && slot3 == 7) {
             if (won == false) {
-             cash += document.getElementById("input") * 3
+             cash += document.getElementById("input").value * 3
              res.textContent = "Double Sevens! (7x)"
 
              won = true;  
@@ -175,7 +177,7 @@
           
           if (slot1 == slot2 || slot2 == slot3 || slot1 == slot3) {
             if (won == false) {
-             cash += document.getElementById("input") * 3
+             cash += document.getElementById("input").value * 3
              res.textContent = "Double Match! (3x)"
 
              won = true; 
