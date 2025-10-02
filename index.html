@@ -129,34 +129,35 @@
         }
 
         btn2.onclick = function() {
-          cash -= document.getElementById("input").value;
+          if (cash >= document.getElementById("input").value) {
+           let slot1 = Math.floor(Math.random() * 9 + 1);
+           let slot2 = Math.floor(Math.random() * 9 + 1);
+           let slot3 = Math.floor(Math.random() * 9 + 1);
           
-          let slot1 = Math.floor(Math.random() * 9 + 1);
-          let slot2 = Math.floor(Math.random() * 9 + 1);
-          let slot3 = Math.floor(Math.random() * 9 + 1);
+           document.getElementById("slot1").textContent = slot1;
+           document.getElementById("slot2").textContent = slot2;
+           document.getElementById("slot3").textContent = slot3;
           
-          document.getElementById("slot1").textContent = slot1;
-          document.getElementById("slot2").textContent = slot2;
-          document.getElementById("slot3").textContent = slot3;
-
-          res.textContent = "awh man"
-          
-          if (slot1 == 7 && slot2 == 7 && slot3 == 7) {
-              cash += document.getElementById("input").value * 25
-              res.textContent = "Triple Sevens!!! (25x)"
-          } else if (slot1 == slot2 && slot2 == slo3) {
-             cash += document.getElementById("input").value * 5
-             res.textContent = "Triple Match!! (5x)"
-          } else if (slot1 == 7 && slot2 == 7 || slot2 == 7 && slot3 == 7 || slot1 == 7 && slot3 == 7) {
-             cash += document.getElementById("input").value * 3
-             res.textContent = "Double Sevens! (7x)" 
-          } else if (slot1 == slot2 || slot2 == slot3 || slot1 == slot3) {
-             cash += document.getElementById("input").value * 3
-             res.textContent = "Double Match! (3x)"
+           if (slot1 == 7 && slot2 == 7 && slot3 == 7) {
+               cash += document.getElementById("input").value * 25
+               res.textContent = "Triple Sevens!!! (25x)"
+           } else if (slot1 == slot2 && slot2 == slo3) {
+              cash += document.getElementById("input").value * 5
+              res.textContent = "Triple Match!! (5x)"
+           } else if (slot1 == 7 && slot2 == 7 || slot2 == 7 && slot3 == 7 || slot1 == 7 && slot3 == 7) {
+              cash += document.getElementById("input").value * 3
+              res.textContent = "Double Sevens! (7x)" 
+           } else if (slot1 == slot2 || slot2 == slot3 || slot1 == slot3) {
+              cash += document.getElementById("input").value * 3
+              res.textContent = "Double Match! (3x)"
+           } else {
+             cash -= document.getElementById("input").value;
+             res.textContent = "awh man"
           }
 
           balance.textContent = cash;
-          document.getElementById("balance3").textContent = "$"+cash
+          document.getElementById("balance3").textContent = cash 
+          }
         }
 
         upg1.onclick = function() {
@@ -166,7 +167,8 @@
             increment += 1;
             upg1cost += 25
             
-            upg1costtext.textContent = "$"+upg1cost; 
+            upg1costtext.textContent = "$"+upg1cost;
+            document.getElementById("balance2").textContent = cash;
             balance.textContent = cash;
           }
         }
@@ -182,6 +184,7 @@
             upg2cost = roundedCost
             
             upg2costtext.textContent = "$"+upg2cost; 
+            document.getElementById("balance2").textContent = cash;
             balance.textContent = cash;
           }
         }
