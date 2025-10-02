@@ -29,7 +29,7 @@
 
         .menubutton {
           background-color: lightgrey; 
-          width: 49%; 
+          width: 32%; 
           height: 30px; 
           font-size:12px;
         }
@@ -40,6 +40,7 @@
     <center>
       <button id="moneyButton" class="menubutton">Earn Cash</button>
       <button id="upgradeButton" class="menubutton">Upgrade</button>
+      <button id="gambleButton" class="menubutton">gamble lol</button>
       
       <div style="width: 100vw; height: 15px; opacity: 0; visibility: hidden;"></div>
 
@@ -58,7 +59,8 @@
         <br>
 
         <label class="smallertext" id="incr">1 Cash/Click</label>
-        </div>
+      </div>
+      
       <div id="upgradeDiv" style="width: 100vw; height: 100%; background-color: white; display: none">
         <label class="smallertext">$</label>
         <label class="smallertext" id="balance2">1</label>
@@ -68,15 +70,30 @@
         <label class="maintext">Click Upgrades</label>
         <br> <br>
       
-        <label id="upg1cost" class="smalltext">$10</label>
+        <label id="upg1cost" class="smalltext">$50</label>
         <br>
         <button id ="upg1" class="thinbutton">+1 Cash/Click</button>
         <br> <br>
       
-        <label id="upg2cost" class="smalltext">$500</label>
+        <label id="upg2cost" class="smalltext">$5000</label>
         <br>
         <button id ="upg2" class="thinbutton">+1x Cash/Click</button>
-        </div>
+      </div>
+
+      <div id="gambleDiv" style="width: 100vw; height: 100%; background-color: white; display: none">
+        <label class="smalltext">$</label>
+        <label class="smalltext" id="balance3">1</label>
+
+        <br><br>
+
+        <label id="slot1" style="font-family: Arial; width: 30px; height: 75px; border-style: solid; border-width: 3px">0</label>
+        <label id="slot2" style="font-family: Arial; width: 30px; height: 75px; border-style: solid; border-width: 3px">0</label>
+        <label id="slot3" style="font-family: Arial; width: 30px; height: 75px; border-style: solid; border-width: 3px">0</label>
+
+        <br>
+
+        <button id ="btn2" style="background-color: lightgrey; width: 150px; height: 50px; font-size:20px;">Spin</button>
+      </div>
 
     </center>
 
@@ -85,8 +102,12 @@
         let increment = 1;
         let multiplier = 1;
 
-        let upg1cost = 10
-        let upg2cost = 500
+        let upg1cost = 50
+        let upg2cost = 5000
+
+        let slot1 = 0
+        let slot2 = 0
+        let slot3 = 0
        
         const balance = document.getElementById("balance");
         const incrementText = document.getElementById("incr");
@@ -96,8 +117,18 @@
        
         btn.onclick = function() {
           cash += increment * multiplier;
-          balance.textContent = cash;
+          balance.textContent = cash;5
           incrementText.textContent = (increment * multiplier)+" Cash/Click";
+        }
+
+        btn2.onclick = function() {
+          slot1 = Math.floor(Math.random() * 9)
+          slot2 = Math.floor(Math.random() * 9)
+          slot3 = Math.floor(Math.random() * 9)
+          
+          document.getElementById("slot1").textContent = slot1
+          document.getElementById("slot2").textContent = slot2
+          document.getElementById("slot3").textContent = slot3
         }
 
         upg1.onclick = function() {
@@ -105,7 +136,7 @@
             cash -= upg1cost
             
             increment += 1;
-            upg1cost += 10
+            upg1cost += 25
             
             upg1costtext.textContent = "$"+upg1cost; 
             balance.textContent = cash;
@@ -129,6 +160,7 @@
 
        upgradeButton.onclick = function() {
          document.getElementById("moneyDiv").style.display = "none";
+         document.getElementById("gambleDiv").style.display = "none";
          document.getElementById("upgradeDiv").style.display = "block";
 
          document.getElementById("balance2").textContent = cash;
@@ -136,7 +168,16 @@
 
         moneyButton.onclick = function() {
          document.getElementById("moneyDiv").style.display = "block";
+          document.getElementById("gambleDiv").style.display = "none";
          document.getElementById("upgradeDiv").style.display = "none";
+       }
+
+        gambleButton.onclick = function() {
+         document.getElementById("moneyDiv").style.display = "none";
+         document.getElementById("gambleDiv").style.display = "block";
+         document.getElementById("upgradeDiv").style.display = "none";
+
+         document.getElementById("balance3").textContent = cash;
        }
     </script>
   </body>
