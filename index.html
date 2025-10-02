@@ -86,11 +86,20 @@
 
         <br><br>
 
-        <label id="slot1" style="font-family: Arial; width: 30px; height: 75px; border-style: solid; border-width: 3px">0</label>
-        <label id="slot2" style="font-family: Arial; width: 30px; height: 75px; border-style: solid; border-width: 3px">0</label>
-        <label id="slot3" style="font-family: Arial; width: 30px; height: 75px; border-style: solid; border-width: 3px">0</label>
+        <label class="smallertext">Bet Amount: </label>
+        <input id="input" type="number"></input>
+        
+        <br><br>
+
+        <label id="slot1" style="font-family: Arial; width: 60px; height: 150px; border-style: solid; border-width: 3px">0</label>
+        <label id="slot2" style="font-family: Arial; width: 60px; height: 150px; border-style: solid; border-width: 3px">0</label>
+        <label id="slot3" style="font-family: Arial; width: 60px; height: 150px; border-style: solid; border-width: 3px">0</label>
 
         <br>
+
+        <label id="result" class= "smallertext"></label>
+
+        <br><br>
 
         <button id ="btn2" style="background-color: lightgrey; width: 150px; height: 50px; font-size:20px;">Spin</button>
       </div>
@@ -102,15 +111,18 @@
         let increment = 1;
         let multiplier = 1;
 
-        let upg1cost = 50
-        let upg2cost = 5000
+        let upg1cost = 50;
+        let upg2cost = 5000;
 
-        let slot1 = 0
-        let slot2 = 0
-        let slot3 = 0
+        let slot1 = 0;
+        let slot2 = 0;
+        let slot3 = 0;
+        var won = false;
        
         const balance = document.getElementById("balance");
         const incrementText = document.getElementById("incr");
+
+        const res = document.getElementById("result");
        
         const upg1costtext = document.getElementById("upg1cost");
         const upg2costtext = document.getElementById("upg2cost");
@@ -122,13 +134,53 @@
         }
 
         btn2.onclick = function() {
-          slot1 = Math.floor(Math.random() * 9)
-          slot2 = Math.floor(Math.random() * 9)
-          slot3 = Math.floor(Math.random() * 9)
+          cash -= document.getElementById("input");
           
-          document.getElementById("slot1").textContent = slot1
-          document.getElementById("slot2").textContent = slot2
-          document.getElementById("slot3").textContent = slot3
+          slot1 = Math.floor(Math.random() * 9 + 1);
+          slot2 = Math.floor(Math.random() * 9 + 1);
+          slot3 = Math.floor(Math.random() * 9 + 1);
+          
+          document.getElementById("slot1").textContent = slot1;
+          document.getElementById("slot2").textContent = slot2;
+          document.getElementById("slot3").textContent = slot3;
+
+          won = false;
+          
+          if (slot1 == 7 && slot2 == 7 && slot3 == 7) {
+            if (won == false) {
+              cash += document.getElementById("input") * 25
+              res.textContent = "Triple Sevens!!! (25x)"
+
+              won = true; 
+            }
+          }
+
+          if (slot1 == slot2 && slot2 == slo3) {
+            if (won == false) {
+             cash += document.getElementById("input") * 5
+             res.textContent = "Triple Match!! (5x)"
+
+             won = true; 
+            }
+          }
+
+          if (slot1 == 7 && slot2 == 7 || slot2 == 7 && slot3 == 7 || slot1 == 7 && slot3 == 7) {
+            if (won == false) {
+             cash += document.getElementById("input") * 3
+             res.textContent = "Double Sevens! (7x)"
+
+             won = true;  
+            }
+          }
+          
+          if (slot1 == slot2 || slot2 == slot3 || slot1 == slot3) {
+            if (won == false) {
+             cash += document.getElementById("input") * 3
+             res.textContent = "Double Match! (3x)"
+
+             won = true; 
+            }
+          }
         }
 
         upg1.onclick = function() {
